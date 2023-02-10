@@ -1,0 +1,10 @@
+Comando para executar a compilação do código
+mvn clean compile assembly:single
+
+
+Código para executar o jar gerado.
+java -jar target/ExemploRabbitMQJava-1.0-SNAPSHOT-jar-with-dependencies.jar
+
+Url da Conexão:
+54.164.109.8:15671
+http://54.175.79.208:15671/
