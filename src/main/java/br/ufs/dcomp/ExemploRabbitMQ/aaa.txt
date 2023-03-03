@@ -1,0 +1,84 @@
+EXEMPLO RABBITMQ:
+
+Comando para executar a compilação do código
+mvn clean compile assembly:single
+
+
+Código para executar o jar gerado.
+java -jar target/ExemploRabbitMQJava-1.0-SNAPSHOT-jar-with-dependencies.jar
+
+Url da Conexão:
+54.164.109.8:15672
+http://54.175.79.208:15671/
+
+
+EXEMPLO TCPCLIENT E TCPSERVER:
+
+mvn compile
+
+java -cp target/classes/ br.ufs.dcomp.ExemploTcpJava.TCPServer
+
+java -cp target/classes/ br.ufs.dcomp.ExemploTcpJava.TCPClient
+
+
+
+
+
+
+
+################################################################################
+
+
+
+
+
+
+
+EXEMPLO PROTOCOL BUFFER
+
+java -jar target/Serializacao.jar
+java -jar target/Desserializacao.jar
+
+
+# ProtocolBufferersExample
+
+## Instalação do compilador protoc
+
+
+sudo apt install protobuf-compiler
+
+
+## Uso do compilador protoc
+
+
+protoc --java_out=src/main/java/ src/main/proto/aluno.proto
+
+
+## Compilação do projeto
+
+
+mvn clean compile assembly:single
+
+
+
+
+OBS PARTE 2:
+USAR UM QUEUE BIND PARA LIGAR A FILA A EXCHANGE E UTILIZAR UM FANOUT PARA COMPARTILHAR PARA TODOS OS USUÁRIOS
+CRIAR EXCHANGE
+FAZER O  BIND
+EXECUTAR O UNBIND
+REMOVER EXCHANGES
+
+https://hevodata.com/learn/rabbitmq-exchange-type/#fanout
+https://www.rabbitmq.com/tutorials/tutorial-four-java.html
+https://javadoc.io/static/com.rabbitmq/amqp-client/5.7.3/com/rabbitmq/client/Channel.html
+https://protobuf.dev/programming-guides/proto3/
+https://github.com/denisfreitas999/ChatRabbitMQ/blob/master/etapa2.md
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+
+--> channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
+--> channel.basicPublish(EXCHANGE_NAME, severity, null, message.getBytes());
+--> channel.queueBind(queueName, EXCHANGE_NAME, "");
+--> channel.queueBind(queueName, EXCHANGE_NAME, "black");
+
+protoc --java_out=src/main/java/ src/main/proto/chat.proto
